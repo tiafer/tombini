@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Contact</title>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="{{ url_for('home') }}" class="logo">
+            <img src="{{ url_for('static', filename='images/logo3.png') }}" alt="BINI Logo">
+            <span>BINI</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="#">Soluções</a></li>
+            <li><a href="#">Industrias</a></li>
+            <li><a href="#">Aplicações</a></li>
+            <li><a href="#">Clientes</a></li>
+            <li><a href="#">Sobre</a></li>
+        </ul>
+        <a href="{{ url_for('contact') }}" class="contact-button">Contato</a>
+    </nav>
+
+    <div class="contact-page">
+            </div>
+        </div>
+
+        <div class="right-section">
+            <h2>PRODUÇÃO TOMBINI</h2>
+            <form action="#" method="POST">
+                <!-- Linha -->
+                <div class="form-group">
+                    <label for="linha">Linha</label>
+                    <select id="linha" name="linha" required>
+                        <option value="" disabled selected>Selecione</option>
+                        <option value="Linha 1">Linha 1</option>
+                        <option value="Linha 2">Linha 2</option>
+                        <option value="Linha 3">Linha 3</option>
+                    </select>
+                </div>
+
+                <!-- Operador -->
+                <div class="form-group">
+                    <label for="operador">Operador</label>
+                    <select id="operador" name="operador" required>
+                        <option value="" disabled selected>Selecione</option>
+                        <option value="Operador 1">Operador 1</option>
+                        <option value="Operador 2">Operador 2</option>
+                        <option value="Operador 3">Operador 3</option>
+                    </select>
+                </div>
+
+                <!-- Tabela de horários -->
+                <h2>Horários de Trabalho</h2>
+                <table border="1" cellpadding="5">
+                    <thead>
+                        <tr>
+                            <th>Horário</th>
+                            <th>Status (OK/NOK)</th>
+                            <th>Justificativa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Função para gerar as linhas de horário -->
+                        {% for hour, minute in [('8', '00'), ('8', '30'), ('9', '00'), ('9', '30'), ('10', '00'), ('10', '30'), ('11', '00'), ('11', '30'), ('13', '00'), ('13', '30'), ('14', '00'), ('14', '30'), ('15', '00'), ('15', '30'), ('16', '00'), ('16', '30')] %}
+                        <tr>
+                            <td>{{ hour }}:{{ minute }}</td>
+                            <td>
+                                <select name="status_{{ hour }}_{{ minute }}">
+                                    <option value="ok">OK</option>
+                                    <option value="nok">NOK</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="justificativa_{{ hour }}_{{ minute }}">
+                                    <option value="nenhuma" selected>Nenhuma</option>
+                                    <option value="pouco_tempo">Pouco Tempo</option>
+                                    <option value="atraso">Atraso</option>
+                                    <option value="maquina_quebrada">Máquina Quebrada</option>
+                                </select>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <!-- Política de Privacidade -->
+                <div class="form-group">
+                    <input type="checkbox" id="privacy_policy" name="privacy_policy" required>
+                    <label for="privacy_policy">Eu tenho conhecimento da política de confidencialidade e autorizo ​​a transferência de informações para mim.</label>
+                </div>
+
+                <!-- Botão de Enviar -->
+                <button type="submit" class="btn-submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

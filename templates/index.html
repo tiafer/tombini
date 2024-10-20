@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Site</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo2.png') }}" alt="Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Serviços</a></li>
+                <li><a href="{{ url_for('contact') }}">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+
+        <section class="features">
+            <div class="feature-item">
+                <h2>Funcionalidade 1</h2>
+                <p>Descrição da funcionalidade 1.</p>
+            </div>
+            <div class="feature-item">
+                <h2>Funcionalidade 2</h2>
+                <p>Descrição da funcionalidade 2.</p>
+            </div>
+            <div class="feature-item">
+                <h2>Funcionalidade 3</h2>
+                <p>Descrição da funcionalidade 3.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Meu Site. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
